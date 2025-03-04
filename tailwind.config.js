@@ -4,7 +4,11 @@ export default {
     content: ["./index.html",
         "./src/**/*.{html,js,ts,jsx}"],
     theme: {
-      extend: {},
+      extend: {
+        fontFamily: {
+          poppins: ["Poppins", "serif"],
+        },
+      },
     },
     plugins: [],
     daisyui: {
