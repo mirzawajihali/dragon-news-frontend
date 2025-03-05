@@ -4,6 +4,7 @@ import LatestNews from "../components/LatestNews";
 import LeftNavbar from "../components/LeftNavbar";
 import Navbar from "../components/Navbar";
 import RightNavbar from "../components/RightNavbar";
+import Footer from "../components/Footer";
 
 
 const Homelayout = () => {
@@ -28,7 +29,11 @@ const Homelayout = () => {
 
            <aside className=" col-span-3"><RightNavbar></RightNavbar> </aside>
 
+
            </main>
+           <footer>
+            <Footer></Footer>
+           </footer>
 
         </div>
     );

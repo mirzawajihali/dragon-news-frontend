@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import NewsCard from "../components/NewsCard";
 
 const CategoryNews = () => {
 
@@ -13,12 +14,8 @@ const CategoryNews = () => {
 
             <div>
                 {
-                    news.map((n, index) => (
-                        <div key={index} className="my-4 p-4 border border-gray-200 rounded-md">
-                            <h1 className="text-xl font-bold">{n.title}</h1>
-                            <p className="text-gray-500">{n.summary}</p>
-                        </div>
-                    ))
+                    news.map((news, index) => <NewsCard key={index} news={news} />
+                    )
                 }
             </div>
         </div>
