@@ -1,31 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
 
     const {createNewUser,  setUser} = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form Submitted');
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      console.log('Form Submitted');
+  
+      const form = new FormData(e.target);
+      const name = form.get('name');
+      const email = form.get('email');
+      const password = form.get('password');
+      const image = form.get('image');
+      console.log(name, email, password, image);
 
-        const form = new FormData(e.target);
-        const name = form.get('name');
-        const email = form.get('email');
-        const password = form.get('password');
-        const image = form.get('image');
-        console.log(name, email, password, image);
-        createNewUser(email, password)
-        .then(result =>{
-            const user = result.user;
-            setUser(user);
-        })
-        .catch(error =>{
-           const errorCode = error.code;
-              const errorMessage = error.message;
-              console.log(errorCode, errorMessage);
-        })
+      setErrorMessage("");
+  
+      try {
+        const result = await createNewUser(email, password);
+        const user = result.user;
+        setUser(user);
+        alert("Account created successfully!");
+      } catch (error) {
+        console.error("Error creating account:", );
+        alert(error.message);
+        setErrorMessage(error.message);
+        
+      }
+    
+       
     }
     return (
         <div className='min-h-screen flex items-center justify-center'>
@@ -48,6 +55,11 @@ const Register = () => {
       <button type='submit' className="btn btn-neutral mt-4">Register</button>
     </fieldset>
   </form>
+  <p className='text-center font-bold text-red-700'>
+    {
+      errorMessage && errorMessage
+    }
+  </p>
 
   <p className='text-center font-bold '>Already have an account? <Link className='text-red-500' to="/auth/login">Login</Link></p>
 </div>

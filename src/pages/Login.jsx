@@ -1,10 +1,13 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Login = () => {
 
     const { userLogin, setUser} = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState("");
+    const location = useLocation();
+    const navigate = useNavigate();
     const handleSubmit = (e) => {   
         e.preventDefault();
         const form = new FormData(e.target);
@@ -17,6 +20,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             setUser(user);
+            navigate(location?.state ? location.state : '/' );
         })
         .catch(error =>{
            
@@ -39,6 +43,11 @@ const Login = () => {
           <button className="btn btn-neutral mt-4">Login</button>
         </fieldset>
       </form>
+      <p className='text-center font-bold text-red-500'>
+    {
+      errorMessage && errorMessage
+    }
+  </p>
 
       <p className='text-center font-bold '>Dont have an account? <Link className='text-red-500' to="/auth/register">Register</Link></p>
     </div>
