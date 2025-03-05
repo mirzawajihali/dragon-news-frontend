@@ -36,7 +36,7 @@ const NewsCard = (props = {}) => {
       {/* Details */}
       <p className="text-gray-700 text-start text-sm mb-4">
         {news.details.slice(0, 200)}...{" "}
-        <Link to={ `/news/${news.id}`} className="text-primary">Read More</Link>
+        <Link to={ `/news/${news._id}`} className="text-primary">Read More</Link>
       </p>
 
       {/* Ratings and Views */}

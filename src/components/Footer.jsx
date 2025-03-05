@@ -4,7 +4,7 @@ const Footer = () => {
         <footer className="bg-white  mt-10 lg:grid lg:grid-cols-5 dark:bg-gray-900">
         <div className="relative block  lg:col-span-2 h-full">
           <img
-            src="https://i.pinimg.com/736x/24/bf/d4/24bfd46f627f8138a42b1a8f96a56094.jpg"
+            src="https://i.ebayimg.com/images/g/l9MAAOSwI~dkqCTM/s-l400.jpg"
             alt=""
             className=" inset-0 lg:h-[500px] lg:w-[500px] md:w-full  object-cover"
           />
