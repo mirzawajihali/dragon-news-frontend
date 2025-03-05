@@ -29,7 +29,7 @@ const Developer = () => {
     </header>
 
     <main>
-    <div className="w-full sm:h-screenh-full bg-white">
+    <div className="w-11/12 mx-auto sm:h-screenh-full bg-white">
       <div
         className=" h-full  flex items-center  w-full bg-[url('https://plus.unsplash.com/premium_photo-1691223733678-095fee90a0a7?q=80&w=2121&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]"
       >

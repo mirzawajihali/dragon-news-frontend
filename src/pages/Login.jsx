@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
@@ -14,8 +14,11 @@ const Login = () => {
       
         const email = form.get('email');
         const password = form.get('password');
+
         
-        console.log( email, password);
+      setErrorMessage("");
+        
+        
         userLogin(email, password)
         .then(result =>{
             const user = result.user;
@@ -24,8 +27,9 @@ const Login = () => {
         })
         .catch(error =>{
            
-               const errorMessage = error.message;
+               
                alert( errorMessage);
+               setErrorMessage(error.message);
          })
     }
     return (

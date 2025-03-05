@@ -17,7 +17,7 @@ const Homelayout = () => {
             </section>
            </header>
            <nav>
-           <section className="w-11/12 mx-auto ">
+           <section >
               <Navbar></Navbar>
             </section>
            </nav>
